@@ -4,7 +4,7 @@ Playing with Go
 Pass by **value** language      
 
 Getting Started:
-1. `brew install make`
+1. `brew install make` - (Mac)
 2. `go mod init <filename>` - creates a mod file named filename
 3. create a main.go file
 4. `go run .` - runs 
@@ -22,7 +22,12 @@ Keyword: `go`
 Sync Package   
 - Mutex (semaphors)
 
-Weight groups
+WaitGroups
+  - import time
+  - sync.WaitGroup
+  - don't copy them
+  - no guaranteed order
+  - `defer` keyword
 
 -----------
 # Producer/Consumer Problem
