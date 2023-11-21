@@ -17,12 +17,12 @@ Getting Started:
 - GoRoutines - lightweight threads
     - a group is called CoRoutines
  
-Keyword: `go`
+Keyword: `go` and `go run -race .`
 
 Sync Package   
 - Mutex (semaphors)
 
-WaitGroups
+### WaitGroups
   - import time
   - sync.WaitGroup
   - don't copy them
@@ -34,6 +34,8 @@ WaitGroups
 
 -----------
 # Dining Philosopher Problem
+- Dikstra's Algo
+- Logical race condition
 
 -----------
 # Sleeping Barber Problem
