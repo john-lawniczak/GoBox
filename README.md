@@ -29,16 +29,30 @@ Sync Package
   - no guaranteed order
   - `defer` keyword
 
------------
-# Producer/Consumer Problem
+### Channels
+They provide a way for goroutines to synchronize and exchange data, enabling safe and efficient concurrent programming.
 
------------
+- **Safe Data Exchange**: Channels ensure safe data exchange between goroutines, preventing common concurrency issues like race conditions.
+- **Synchronization**: They help synchronize execution across different goroutines, making it easier to coordinate concurrent tasks.
+- **Blocking and Non-Blocking Operations**: Channels support both blocking and non-blocking operations, giving you control over goroutine communication.
+- **Buffered and Unbuffered**: Go provides both buffered and unbuffered channels, allowing for flexible communication patterns and control over the capacity and flow of data.
+- **Promoting Concurrency**: Channels are integral to Go's philosophy of using communication to share memory, rather than sharing memory to communicate. This promotes a more structured approach to concurrency.
+
+----------
 # Dining Philosopher Problem
-- Dikstra's Algo
-- Logical race condition
+The Dining Philosopher Problem is a classic synchronization problem proposed by Dijkstra. It involves a scenario where a certain number of philosophers are sitting around a circular table doing one of two things: thinking or eating. They use a fork to eat and there's one fork between each pair of adjacent philosophers. The problem demonstrates the challenges of resource allocation and avoiding deadlock, where philosophers could end up waiting indefinitely for a fork.
+
+Key Points:
+- Challenges: Deadlock, resource allocation.
+- Solution Concepts: Resource hierarchy, philosopher states, resource arbitration.
 
 -----------
 # Sleeping Barber Problem
+The Sleeping Barber Problem is a classic inter-process communication and synchronization problem between multiple customer threads and a barber thread. The barber in the barber shop sleeps when there are no customers and is woken up by a customer. If multiple customers arrive while the barber is busy, they either wait in a waiting room (if there are free chairs) or leave (if all chairs are occupied). This problem illustrates the challenges in coordinating access to a shared resource (barber) in a concurrent system.
+
+Key Points:
+- Challenges: Coordination, managing access to a limited resource (barber).
+- Solution Concepts: Semaphore, mutex, producer-consumer problem.
 
 ------
 # Tests
