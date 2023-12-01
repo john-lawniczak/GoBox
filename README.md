@@ -8,7 +8,7 @@ Getting Started:
 2. `go mod init <filename>` - creates a mod file named filename
 3. create a main.go file
 4. `go run .` - runs 
-
+5. `go run -race .` - enables the race detector [when two or more threads in a program access shared data at the same time, and at least one of these accesses is a write]
 ------
 # Concurrency
 [Working with Concurrency in Go](https://www.udemy.com/course/working-with-concurrency-in-go-golang/)
@@ -17,7 +17,7 @@ Getting Started:
 - GoRoutines - lightweight threads
     - a group is called CoRoutines
  
-Keyword: `go` and `go run -race .`
+Keyword: `go`    
 
 Sync Package   
 - Mutex (semaphors)
@@ -45,6 +45,37 @@ The Dining Philosopher Problem is a classic synchronization problem proposed by 
 Key Points:
 - Challenges: Deadlock, resource allocation.
 - Solution Concepts: Resource hierarchy, philosopher states, resource arbitration.
+
+
+# Select Statement
+`select` statement
+- **Primary Use**: The `select` statement is used for choosing between multiple channel operations, such as send and receive operations on channels.
+- **Blocking Behavior**: It blocks until one of its case statements can proceed, making it ideal for synchronization in concurrent programming.
+
+### Syntax
+- Similar to a `switch` statement, `select` uses `case` and `default` keywords.
+- Each `case` in a `select` block represents a channel operation.
+- The `default` case is optional and is executed if no other case is ready, allowing for non-blocking behavior.
+
+- **Blocking**: By default, `select` blocks until one of its cases can run.
+- **Non-Blocking**: Including a `default` case makes the `select` non-blocking.
+- **Concurrency Control**: Essential for managing multiple channel communications in concurrent Go programs.
+- **Random Selection**: If multiple cases are ready, one is chosento execute, ensuring fairness among channels.
+
+## Example Usage
+```go
+select {
+case msg1 := <-channel1:
+    // Handle the message received from channel1
+case msg2 := <-channel2:
+    // Handle the message received from channel2
+case channel3 <- msg3:
+    // Send msg3 to channel3
+default:
+    // Execute if no other case is ready (non-blocking)
+}
+
+
 
 -----------
 # Sleeping Barber Problem
